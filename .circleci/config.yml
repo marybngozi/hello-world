@@ -24,7 +24,7 @@ jobs:
       - run:
           name: "Say Yumanity"
           command: "echo Hello Yumanity!"
-  print_world:
+  print-world:
     docker:
       - image: circleci/node:13.8.0
     steps:
