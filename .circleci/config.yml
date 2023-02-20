@@ -26,7 +26,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-        at: /tmp/workspace
+          at: /tmp/workspace
       - run:
           name: "Say output content"
           command: cat output.txt
