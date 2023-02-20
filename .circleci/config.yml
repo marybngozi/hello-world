@@ -36,6 +36,11 @@ jobs:
       - run:
           name: "Say output content"
           command: cat ~/output.txt
+      - run: return 1
+      - run:
+          name: "Notify error"
+          command: echo "Nello Error"
+          when: on_fail
 # Invoke jobs via workflows
 workflows:
   say-hello-workflow:
