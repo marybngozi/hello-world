@@ -36,6 +36,7 @@ jobs:
       - run:
           name: "Say output content"
           command: cat ~/output.txt
+      - run: exit 0
       - run:
           name: "Notify error"
           command: echo "Nello Error"
