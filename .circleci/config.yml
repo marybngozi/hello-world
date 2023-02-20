@@ -16,9 +16,9 @@ jobs:
       - checkout
       - run:
           name: "Env variable to output"
-          command: echo "Hello $MY_FULL_NAME" > output.txt
+          command: echo "Hello $MY_FULL_NAME" > ~/output.txt
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: ~/
           paths:
             - output.txt
   print_output_file:
@@ -26,10 +26,10 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: ~/
       - run:
           name: "Say output content"
-          command: cat output.txt
+          command: cat ~/output.txt
 # Invoke jobs via workflows
 workflows:
   say-hello-workflow:
