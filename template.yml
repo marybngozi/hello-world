@@ -10,7 +10,6 @@ Resources:
       # Change this, as applicable to you
       KeyName: rsa
       # Change this, as applicable to you
-      # You may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
       ImageId: "ami-054cb116359624aa3"
       InstanceType: t3.micro
   InstanceSecurityGroup:
