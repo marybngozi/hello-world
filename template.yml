@@ -10,7 +10,7 @@ Resources:
       # Change this, as applicable to you
       KeyName: rsa
       # Change this, as applicable to you
-      ImageId: "ami-054cb116359624aa3"
+      ImageId: "ami-09cd747c78a9add63"
       InstanceType: t3.micro
   InstanceSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
