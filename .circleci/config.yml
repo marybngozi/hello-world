@@ -19,6 +19,7 @@ jobs:
               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
               --region us-east-1
 # Sequential workflow
+# run code again
 workflows:
   my_workflow:
     jobs:
