@@ -14,4 +14,17 @@ aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --filters --output text >> inventory.txt
 ```
 
+## Add deployment script and green-blue routing
+
+### cloudfront.yml
+
+- PipelineID - Name of the S3 bucket you created manually.
+
+```
+aws cloudformation deploy \
+--template-file cloudfront.yml \
+--stack-name production-distro \
+--parameter-overrides PipelineID="mybuck10988483202"
+```
+
 ## By MaryBlessing Umeh
