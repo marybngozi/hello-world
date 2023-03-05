@@ -64,6 +64,8 @@ jobs:
 workflows:
   my_workflow:
     jobs:
-      - create_infrastructure
+      - destory_environment
       # - configure_infrastructure
-      - smoke_test
+      - smoke_test:
+        depends_on:
+          - destory_environment
