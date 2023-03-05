@@ -33,11 +33,28 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook -i inventory.txt main.yml
+            ansible-playbook -i inventory.txt playbook.yml
+  smoke_test:
+    docker:
+      - image: alphine:latest
+    steps:
+      - run: apt add --update curl
+      - run:
+        name: smoke test
+          command: |
+            URL="https://blog.udacity.com/"
+            # test if the website exists
+            if curl -s --head ${URL}
+            then
+              return 0
+            else
+              return 1
+            fi
 # Sequential workflow
 # run code again
 workflows:
   my_workflow:
     jobs:
       # - create_infrastructure
-      - configure_infrastructure
+      # - configure_infrastructure
+      - smoke_test
