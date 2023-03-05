@@ -26,6 +26,8 @@ jobs:
               --template-file template.yml \
               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
               --region us-east-1
+      - run: return 1
+      - destory_environment
   configure_infrastructure:
     docker:
       - image: python:3.7-alpine3.11
@@ -58,7 +60,6 @@ jobs:
             else
               return 1
             fi
-      - destory_environment
 # Sequential workflow
 # run code again
 workflows:
@@ -66,6 +67,6 @@ workflows:
     jobs:
       - create_infrastructure
       # - configure_infrastructure
-      - smoke_test:
-          requires:
-            - create_infrastructure
+      # - smoke_test:
+      #     requires:
+      #       - create_infrastructure
